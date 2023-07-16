@@ -1,3 +1,3 @@
 # YouTubeDownloader
-Youtubeの動画を高画質でダウンロードできます
+Youtubeの動画を高画質でダウンロードできます\n
 Windows10のみテストしているので、他のバージョンやosでの動作は保証できません。
