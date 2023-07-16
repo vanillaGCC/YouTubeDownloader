@@ -75,11 +75,12 @@ class MyProject1MyFrame1Child(MyProject1MyFrame1):
         return option
 
     def GetInfoOnButtonClick(self, event):
-        title=self.GetInfomation(self.URL.GetValue())
+        title = self.GetInfomation(self.URL.GetValue())
         if title is False:
             self.FileName1.SetLabel("無効なURLです")
         else:
             self.FileName1.SetLabel(title)
+            self.FileName.SetLabel(title)
 
     def MyFrame1OnClose(self, event):
         """ダイアログボックス選択式のウィンドウクローズ"""
