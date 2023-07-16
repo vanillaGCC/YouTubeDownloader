@@ -21,13 +21,11 @@ class MyProject1MyFrame1Child(MyProject1MyFrame1):
             video_title = info_dict.get("title", None)
             return video_title
         except Exception:
-            return False  # If error, the video_id is not valid
+            return False  #
 
     def download(self, url, option):
-        # インスタンスの生成
         ydl = YoutubeDL(option)
         try:
-            # ダウンロードの実行
             result = ydl.download([url])
             return 1
         except Exception:
