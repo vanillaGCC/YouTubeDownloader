@@ -4,9 +4,6 @@ import os
 from yt_dlp import YoutubeDL
 from MyProject1MyFrame1 import MyProject1MyFrame1
 
-# ffmpegのbinフォルダを環境変数に登録する（既に環境変数に登録済みなら、この処理は不要）
-path = "C:/Users/nyous/ffmpeg-master-latest-win64-gpl-shared/bin"
-os.environ["PATH"] += "" if path in os.environ["PATH"] else ";" + path
 folder_path = ""
 filetype = "mp4"
 quality = "high"
@@ -27,10 +24,9 @@ class MyProject1MyFrame1Child(MyProject1MyFrame1):
             return False  # If error, the video_id is not valid
 
     def download(self, url, option):
+        # インスタンスの生成
+        ydl = YoutubeDL(option)
         try:
-            # インスタンスの生成
-            ydl = YoutubeDL(option)
-
             # ダウンロードの実行
             result = ydl.download([url])
             return 1
@@ -79,12 +75,11 @@ class MyProject1MyFrame1Child(MyProject1MyFrame1):
         return option
 
     def GetInfoOnButtonClick(self, event):
-        url = self.URL.GetValue()
-        title = self.GetInfomation(url)
+        title=self.GetInfomation(self.URL.GetValue())
         if title is False:
             self.FileName1.SetLabel("無効なURLです")
         else:
-            self.FileName1.SetLabel(Title)
+            self.FileName1.SetLabel(title)
 
     def MyFrame1OnClose(self, event):
         """ダイアログボックス選択式のウィンドウクローズ"""
